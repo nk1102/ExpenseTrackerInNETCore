@@ -6,7 +6,13 @@ namespace ExpenseTrackerInNETCore.Controllers
 {
     public class HomeController : Controller
     {
-       
+        private readonly UserDbContext _userDbContext;
+
+        public HomeController(UserDbContext userDbContext)
+        {
+            _userDbContext = userDbContext; 
+        }
+
         public IActionResult Index()
         {
             return View();

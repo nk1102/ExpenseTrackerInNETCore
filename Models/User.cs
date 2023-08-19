@@ -7,7 +7,7 @@ namespace ExpenseTrackerInNETCore.Models
     {
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Name Cannot be Blank")]
