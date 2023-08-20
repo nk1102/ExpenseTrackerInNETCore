@@ -1,77 +1,63 @@
-﻿@{
-    Layout = null;
+﻿@model ExpenseTrackerInNETCore.Models.User
+
+@{
+    ViewData["Title"] = "Register";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ExpenseTrackerInNETCore.styles.css" asp-append-version="true" />
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
+<h1>Register</h1>
 
-        .login-box {
-            margin-top: 100px;
-            padding: 20px;
-            border: 1px solid #dcdcdc;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
-    <script>
-        $(document).ready(function () {
-            $("#registerform").submit(function (event) {
-     
-                event.preventDefault();
-               
-               
-            });
-        });
-    </script>
-</head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="login-box">
-                    <h2 class="text-center">Register</h2>
-                    <form id="registerform">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" required>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="number">Enter Your Mobile Number</label>
-                            <input type="number" class="form-control" id="mobile" placeholder="Enter Your mobile" required>
-                        </div>
-                       
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-                        </div>
-                        <br/>
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary" id="regbtn">Register</button>
-                        </div>
-                    </form>
-                    
-                </div>
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
             </div>
-        </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNumber" class="control-label"></label>
+                <input asp-for="MobileNumber" class="form-control" />
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsEmailVerified" /> @Html.DisplayNameFor(model => model.IsEmailVerified)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-</body>
-</html>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

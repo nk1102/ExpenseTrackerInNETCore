@@ -11,7 +11,6 @@ namespace ExpenseTrackerInNETCore.Controllers
     public class HomeController : Controller
     {
         private readonly UserDbContext _userDbContext;
-        private readonly IConfiguration _configuration;
 
         public HomeController(UserDbContext userDbContext)
         {
@@ -30,11 +29,13 @@ namespace ExpenseTrackerInNETCore.Controllers
             return View();
         }
 
-        [HttpGet]
+        
         public IActionResult Register()
         {
             return View();
         }
+
+
         [HttpPost]
         public IActionResult Register(User user)
 
@@ -64,10 +65,10 @@ namespace ExpenseTrackerInNETCore.Controllers
             }
             catch(Exception ex)
             {
-              Console.WriteLine(ex.ToString()); 
+              Console.Write(ex.ToString()); 
             }
-            return View(user);
-            }
+            return View();
+        }
             
            
 
