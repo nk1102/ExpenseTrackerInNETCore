@@ -7,7 +7,7 @@ namespace ExpenseTrackerInNETCore.Models
     {
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Name Cannot be Blank")]
@@ -22,11 +22,11 @@ namespace ExpenseTrackerInNETCore.Models
         [Required(ErrorMessage = "MobileNumber Cannot be Blank")]
         public long MobileNumber { get; set; }
 
-        public bool IsAdmin { get; set; } = false;
+        public bool IsAdmin { get; set; } = false ;
 
         public bool IsEmailVerified { get; set; } = false;
 
-  
+    
 
 
 

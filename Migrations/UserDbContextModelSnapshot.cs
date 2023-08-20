@@ -25,6 +25,7 @@ namespace ExpenseTrackerInNETCore.Migrations
             modelBuilder.Entity("ExpenseTrackerInNETCore.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")

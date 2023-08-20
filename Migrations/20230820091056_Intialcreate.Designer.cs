@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseTrackerInNETCore.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20230820084301_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230820091056_Intialcreate")]
+    partial class Intialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,7 @@ namespace ExpenseTrackerInNETCore.Migrations
             modelBuilder.Entity("ExpenseTrackerInNETCore.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
