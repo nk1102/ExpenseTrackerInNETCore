@@ -26,6 +26,8 @@ namespace ExpenseTrackerInNETCore.Models
 
         public bool IsEmailVerified { get; set; } = false;
 
+  
+
 
 
     }
