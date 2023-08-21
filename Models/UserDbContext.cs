@@ -1,11 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseTrackerInNETCore.Models
 {
     public class UserDbContext : DbContext
-    {
+	{ 
         public UserDbContext(DbContextOptions options) : base(options)
         {
+
+
         }
 
 

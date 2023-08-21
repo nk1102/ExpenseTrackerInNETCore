@@ -5,35 +5,44 @@ using System.Diagnostics;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseTrackerInNETCore.Controllers
 {
     public class HomeController : Controller
     {
         private readonly UserDbContext _userDbContext;
+		
+		public HomeController(UserDbContext userDbContext)
+		{
+			_userDbContext = userDbContext;
+		}
 
-        public HomeController(UserDbContext userDbContext)
-        {
-            _userDbContext = userDbContext; 
-        }
-
-        public IActionResult Index()
+		public IActionResult Index()
         {
             return View();
         }
 
-      
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        
-        public IActionResult Register()
+        [HttpPost]
+        public IActionResult Login(User user)
         {
             return View();
         }
+
+
+
+		public IActionResult Register()
+        {
+            return View();
+        }
+
 
 
         [HttpPost]
@@ -80,6 +89,10 @@ namespace ExpenseTrackerInNETCore.Controllers
             return View();
         }
 
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
        
       
     }
