@@ -122,6 +122,7 @@ namespace ExpenseTrackerInNETCore.Controllers
 
         public IActionResult Dashboard()
         {
+            // Dashboard 
             return View();
         }
        
