@@ -11,6 +11,7 @@ namespace ExpenseTrackerInNETCore.Controllers
 {
     public class HomeController : Controller
     {
+        static string EmailId;
         private readonly UserDbContext _userDbContext;
 		
 		public HomeController(UserDbContext userDbContext)
@@ -24,7 +25,7 @@ namespace ExpenseTrackerInNETCore.Controllers
         }
 
 
-        [HttpGet]
+   
         public IActionResult Login()
         {
             return View();
@@ -32,8 +33,38 @@ namespace ExpenseTrackerInNETCore.Controllers
 
         [HttpPost]
         public IActionResult Login(User user)
+        
+        
         {
-            return View();
+
+            try
+            { 
+                    var student = _userDbContext.Users.FirstOrDefault(u => u.Email.Equals(user.Email));
+
+
+                    if (student != null && student.Password == user.Password)
+                    {
+                        EmailId = user.Email;
+
+                        return RedirectToAction("Dashboard");
+
+
+                    }
+
+                    else
+                    {
+
+                        return View();
+                    }
+               
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+                return View();
+            
+
         }
 
 

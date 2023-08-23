@@ -1,84 +1,39 @@
-﻿@{
-    Layout = null;
-}
+﻿
+
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ExpenseTrackerInNETCore.styles.css" asp-append-version="true" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .login-box {
-            margin-top: 100px;
-            padding: 20px;
-            border: 1px solid #dcdcdc;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .otp-box {
-            display: none;
-        }
-    </style>
-    <script>
-        $(document).ready(function () {
-            $("#loginForm").submit(function (event) {
-                var emailField = $("#email");
-                var passwordField = $("#password");
-                emailField.val(""); // Clear email field
-                passwordField.val(""); // Clear password field
-                event.preventDefault();
-                $("#otpBox").show();
-            });
-        });
-    </script>
 </head>
 <body>
+
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="login-box">
-                    <h2 class="text-center">Login</h2>
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
-                        </div>
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                             <a href="/Home/Register">Register</a>
-                        </div>
-                    </form>
-                    <div id="otpBox" class="otp-box">
-                        <hr>
-                        <h4 class="text-center">Enter OTP</h4>
-                        <form>
-                            <div class="form-group">
-                                <label for="otp">OTP</label>
-                                <input type="text" class="form-control" id="otp" placeholder="Enter OTP">
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="submit" class="btn btn-primary">Submit OTP</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <h2>Login </h2>
+        <form method="post">
+            
+            <div class="form-group">
+                <label for="Email">Enter your Email:</label>
+                <input type="email" class="form-control" id="Email" name="Email" required>
             </div>
-        </div>
+
+            <div class="form-group">
+                <label for="Password">Enter your Password:</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+            
+
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="/Home/Register">Register</a>
+        </form>
     </div>
+
+
 </body>
 </html>
